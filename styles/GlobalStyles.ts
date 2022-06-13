@@ -1,5 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
-
+import '@fontsource/roboto/100.css';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import '@fontsource/roboto/900.css';
 const GlobalStyles = createGlobalStyle`
 
 
@@ -102,13 +107,16 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 
-/*Font Family */
+/*Font Family, BG COLOR, Color */
 
 body {
-  
-  font-family:   -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: #F4E640;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+   
 }
+  
+ 
 
 
 /*
