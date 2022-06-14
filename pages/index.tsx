@@ -1,14 +1,19 @@
 import styled from 'styled-components';
 import type { NextPage, GetStaticProps } from 'next';
 import { createClient } from 'contentful';
+import RecipeCard from '../components/RecipeCard';
 
 const Home: NextPage = ({ recipes }: any) => {
-  console.log('RECIPES:', recipes);
+  console.log('RECIPES::', recipes);
 
   return (
-    <>
-      <div>Recipe List</div>
-    </>
+    <ContentWrapper>
+      <RecipeList>
+        {recipes.map(recipe => (
+          <RecipeCard key={recipe.sys.id} recipe={recipe} />
+        ))}
+      </RecipeList>
+    </ContentWrapper>
   );
 };
 
@@ -29,6 +34,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const PageWrapper = styled.div``;
+const ContentWrapper = styled.div``;
+const RecipeList = styled.div``;
 
 export default Home;
