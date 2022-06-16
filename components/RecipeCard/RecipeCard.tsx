@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
@@ -10,7 +11,13 @@ const RecipeCard = ({ recipe }: any) => {
 
   return (
     <RecipeCardWrapper>
-      <Featured>{/* image - thumbnail */}</Featured>
+      <Featured>
+        <Image
+          src={'https:' + thumbnail.fields.file.url}
+          width={600}
+          height={400}
+        />
+      </Featured>
       <Content>
         <Info>
           <Title>{title}</Title>
