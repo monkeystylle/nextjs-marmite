@@ -35,6 +35,10 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const ContentWrapper = styled.div``;
-const RecipeList = styled.div``;
+const RecipeList = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+`;
 
 export default Home;
