@@ -12,11 +12,7 @@ const RecipeCard = ({ recipe }: any) => {
   return (
     <RecipeCardWrapper>
       <Featured>
-        <Image
-          src={'https:' + thumbnail.fields.file.url}
-          width={600}
-          height={400}
-        />
+        <ImageThumbnail src={'https:' + thumbnail.fields.file.url} />
       </Featured>
       <Content>
         <Info>
@@ -72,6 +68,11 @@ const ActionLink = styled.a`
   text-decoration: none;
   cursor: pointer;
   font-weight: 500;
+`;
+
+const ImageThumbnail = styled.img`
+  height: 300px;
+  object-fit: cover;
 `;
 
 export default RecipeCard;

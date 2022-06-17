@@ -2,7 +2,7 @@ import React from 'react';
 import { createClient } from 'contentful';
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import styled from 'styled-components';
-import Image from 'next/image';
+
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 type Props = {};
@@ -20,14 +20,10 @@ const RecipeDetails = ({ recipe }) => {
   return (
     <RecipePageWrapper>
       <Banner>
-        <Image
-          src={'https:' + featuredImage.fields.file.url}
-          width={featuredImage.fields.file.details.image.width}
-          height={featuredImage.fields.file.details.image.height}
-        />
+        <Image src={'https:' + featuredImage.fields.file.url} />
         <Title>{title}</Title>
         <Info>
-          <p>Take About {cookingTime} mins to cook</p>
+          <MinsToCook>Take About {cookingTime} mins to cook</MinsToCook>
           <h3>Ingredients: </h3>
           {ingredients.map(ing => (
             <span key={ing}>{ing}</span>
@@ -76,10 +72,18 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 const RecipePageWrapper = styled.div``;
 
-const Banner = styled.div``;
+const Banner = styled.div`
+  width: 70%;
+  margin: auto;
+`;
 
-const ImageWrapper = styled.div`
-  text-align: center;
+const MinsToCook = styled.p`
+  font-size: 1.2rem;
+`;
+
+const Image = styled.img`
+  border: 1px solid gray;
+  border-radius: 4px;
 `;
 
 const Title = styled.h2`
