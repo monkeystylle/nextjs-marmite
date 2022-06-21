@@ -12,7 +12,7 @@ const PageNotFound = (props: Props) => {
   useEffect(() => {
     setTimeout(() => {
       router.push('/');
-    }, 3000);
+    }, 4000);
   }, []);
 
   return (
