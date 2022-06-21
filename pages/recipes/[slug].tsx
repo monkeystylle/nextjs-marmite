@@ -4,6 +4,7 @@ import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import styled from 'styled-components';
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import Skeleton from '../../components/Skeleton';
 
 type Props = {};
 
@@ -13,6 +14,8 @@ const client = createClient({
 });
 
 const RecipeDetails = ({ recipe }) => {
+  if (!recipe) return <Skeleton />;
+
   console.log('SLUGRECIPE:', recipe);
   const { featuredImage, title, cookingTime, ingredients, method } =
     recipe.fields;
@@ -53,7 +56,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -66,6 +69,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       recipe: items[0],
+      revalidate: 1,
     },
   };
 };
